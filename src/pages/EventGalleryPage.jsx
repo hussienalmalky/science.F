@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router'
-import { eventGalleryPhotos, projectPillars } from '../data/siteData'
+import { eventGalleryPhotos } from '../data/eventMedia'
+import { projectPillars } from '../data/siteData'
 
 export default function EventGalleryPage() {
   const { projectSlug } = useParams()

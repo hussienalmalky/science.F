@@ -1,25 +1,26 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router'
 import { ayaProfile, contactInfo, hayaProfile, jowanaProfile, meiraProfile, navItems } from './data/siteData'
 import { useLanguage } from './i18n'
 import ScienceWordmark from './components/ScienceWordmark'
-import AboutPage from './pages/AboutPage'
-import AboutPillarPage from './pages/AboutPillarPage'
-import CaseStudiesPage from './pages/CaseStudiesPage'
-import ContactPage from './pages/ContactPage'
-import ExperiencePage from './pages/ExperiencePage'
-import ExperienceStepPage from './pages/ExperienceStepPage'
-import FounderPage from './pages/FounderPage'
 import HomePage from './pages/HomePage'
-import NotFoundPage from './pages/NotFoundPage'
-import ProjectDetailPage from './pages/ProjectDetailPage'
-import EventGalleryPage from './pages/EventGalleryPage'
-import ServicesPage from './pages/ServicesPage'
-import ServiceDetailPage from './pages/ServiceDetailPage'
-import SocialLinksPage from './pages/SocialLinksPage'
-import TeamPage from './pages/TeamPage'
-import TeamRolePage from './pages/TeamRolePage'
-import WorkPage from './pages/WorkPage'
+
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const AboutPillarPage = lazy(() => import('./pages/AboutPillarPage'))
+const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const ExperiencePage = lazy(() => import('./pages/ExperiencePage'))
+const ExperienceStepPage = lazy(() => import('./pages/ExperienceStepPage'))
+const FounderPage = lazy(() => import('./pages/FounderPage'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'))
+const EventGalleryPage = lazy(() => import('./pages/EventGalleryPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'))
+const SocialLinksPage = lazy(() => import('./pages/SocialLinksPage'))
+const TeamPage = lazy(() => import('./pages/TeamPage'))
+const TeamRolePage = lazy(() => import('./pages/TeamRolePage'))
+const WorkPage = lazy(() => import('./pages/WorkPage'))
 
 function App() {
   const cursorRef = useRef(null)
@@ -142,29 +143,31 @@ function App() {
       </header>
 
       <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about/:aboutSlug" element={<AboutPillarPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/our-work" element={<WorkPage />} />
-          <Route path="/our-work/:projectSlug/gallery" element={<EventGalleryPage />} />
-          <Route path="/our-work/:projectSlug" element={<ProjectDetailPage />} />
-          <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/science-experience/:stepSlug" element={<ExperienceStepPage />} />
-          <Route path="/science-experience" element={<ExperiencePage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/team/osama-elmawy" element={<FounderPage />} />
-          <Route path="/team/aya-nassar" element={<FounderPage profile={ayaProfile} />} />
-          <Route path="/team/jowana-almalky" element={<FounderPage profile={jowanaProfile} />} />
-          <Route path="/team/haya-tamer" element={<FounderPage profile={hayaProfile} />} />
-          <Route path="/team/dr-meira-tamer" element={<FounderPage profile={meiraProfile} />} />
-          <Route path="/team/:teamSlug" element={<TeamRolePage />} />
-          <Route path="/social" element={<SocialLinksPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about/:aboutSlug" element={<AboutPillarPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/our-work" element={<WorkPage />} />
+            <Route path="/our-work/:projectSlug/gallery" element={<EventGalleryPage />} />
+            <Route path="/our-work/:projectSlug" element={<ProjectDetailPage />} />
+            <Route path="/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/science-experience/:stepSlug" element={<ExperienceStepPage />} />
+            <Route path="/science-experience" element={<ExperiencePage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/team/osama-elmawy" element={<FounderPage />} />
+            <Route path="/team/aya-nassar" element={<FounderPage profile={ayaProfile} />} />
+            <Route path="/team/jowana-almalky" element={<FounderPage profile={jowanaProfile} />} />
+            <Route path="/team/haya-tamer" element={<FounderPage profile={hayaProfile} />} />
+            <Route path="/team/dr-meira-tamer" element={<FounderPage profile={meiraProfile} />} />
+            <Route path="/team/:teamSlug" element={<TeamRolePage />} />
+            <Route path="/social" element={<SocialLinksPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </main>
 
       <footer className="site-footer">

@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router'
 import ScienceWordmark from '../components/ScienceWordmark'
+import LazyBackground from '../components/LazyBackground'
 import heroVideo from '../assets/hero/hero.mp4'
 import {
   aboutPillars,
@@ -121,11 +122,12 @@ export default function HomePage() {
               to={`/team/${profile.slug}`}
               aria-label={`${t('View profile:')} ${t(profile.name)}`}
             >
-              <div
+              <LazyBackground
                 className="team-avatar"
                 role="img"
                 aria-label={t(profile.name)}
-                style={{ backgroundImage: `linear-gradient(180deg, rgba(10, 15, 22, 0.12), rgba(7, 11, 18, 0.28)), url(${profile.image})` }}
+                image={profile.image}
+                overlay="linear-gradient(180deg, rgba(10, 15, 22, 0.12), rgba(7, 11, 18, 0.28))"
               />
               <div className="team-card-copy">
                 <h4>{t(profile.name)}</h4>
@@ -151,10 +153,11 @@ export default function HomePage() {
               aria-label={`${t('View event:')} ${t(project.name)}`}
             >
               <div className="project-media">
-                <div
+                <LazyBackground
                   className={`project-visual ${project.slug === 'forensic-nursing-scientific-day' ? 'project-visual--poster' : ''}`}
                   aria-hidden="true"
-                  style={{ backgroundImage: `linear-gradient(180deg, rgba(10, 15, 22, 0.1), rgba(7,11,18,0.38)), url("${project.image}")` }}
+                  image={project.image}
+                  overlay="linear-gradient(180deg, rgba(10, 15, 22, 0.1), rgba(7,11,18,0.38))"
                 />
               </div>
               <div className="project-copy">

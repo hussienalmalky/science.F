@@ -2,8 +2,10 @@ import { Link, Navigate, useParams } from 'react-router'
 import { useEffect, useRef, useState } from 'react'
 import ministryLogo from '../assets/logo.m/s.png'
 import medicalServicesLogo from '../assets/logo.m/n.jpeg'
-import { eventGalleryPhotos, eventHighlights, eventVideos, projectPillars } from '../data/siteData'
+import { eventGalleryPhotos, eventHighlights, eventVideos } from '../data/eventMedia'
+import { projectPillars } from '../data/siteData'
 import { useLanguage } from '../i18n'
+import LazyEventVideo from '../components/LazyEventVideo'
 
 export default function ProjectDetailPage() {
   const { t } = useLanguage()
@@ -246,11 +248,9 @@ export default function ProjectDetailPage() {
                 className="event-video-track"
                 style={{ transform: `translateX(-${activeVideo * 100}%)` }}
               >
-                {videos.map((video) => (
+                {videos.map((video, index) => (
                   <div className="event-video-slide" key={video.src}>
-                    <video src={video.src} poster={video.poster} controls playsInline preload="metadata">
-                      Your browser does not support the video tag.
-                    </video>
+                    <LazyEventVideo video={video} isActive={index === activeVideo} />
                   </div>
                 ))}
               </div>
