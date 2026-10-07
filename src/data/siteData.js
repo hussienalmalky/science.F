@@ -1,5 +1,6 @@
 import founderImage from '../assets/osama/osama-elmawy.jpeg'
 import ayaImage from '../assets/Aya/aya-nassar.jpeg'
+import forensicNursingCover from '../assets/aas/WhatsApp Image 2026-10-07 at 11.34.35 AM.jpeg'
 import jowanaImage from '../assets/jowana/jowana-almalky.jpeg'
 import hayaImage from '../assets/haya/haya-tamer.jpeg'
 import meiraImage from '../assets/meira/meira-tamer.jpeg'
@@ -92,9 +93,64 @@ export const projectPillars = [
   {
     slug: 'forensic-nursing-scientific-day',
     status: 'COMPLETED',
-    name: 'Forensic Nursing Scientific Day',
+    name: 'Nursing Law & Forensic Science Day',
     label: 'Scientific Day',
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80',
+    image: forensicNursingCover,
+    eventTitle: 'Nursing Law & Forensic Science Day',
+    eventSubtitle: 'Scientific Day for Nursing Officers',
+    theme: 'Bridging Care, Law & Science for a Stronger Nursing Practice',
+    date: '2 September 2026',
+    venue: 'Conference Halls, Police Hospital – Nasr City',
+    presentedBy: 'Medical Services Sector – Ministry of Interior',
+    overview: 'A scientific day dedicated to Nursing Officers, bringing together nursing practice, law, and forensic science within a professional scientific environment.',
+    about: [
+      'The event focused on strengthening awareness and professional knowledge around the legal and forensic aspects of nursing practice.',
+      'The event was managed by SCIENCE Event Management.',
+    ],
+    program: [
+      { time: '09:30 – 10:00', title: 'Welcome & Day Introduction', speaker: 'Dr. Meira Tamer', description: 'Welcome remarks and introduction to the scientific day.' },
+      { time: '10:00 – 12:00', title: 'Medical Management of Suspected Criminal Cases', speaker: 'Prof. Dr. Adel Al-Bary', description: 'Head of the Forensic Medicine Authority in Suez' },
+      { time: '12:00 – 12:30', title: 'Coffee Break', speaker: '-', description: '' },
+      { time: '12:30 – 02:00', title: 'Law Regulating Medical Liability', speaker: 'Dr. Kawthar Mahmoud', description: 'President of the Egyptian Nursing Syndicate' },
+      { time: '02:00 – 03:00', title: 'Certificates Distribution & Closing', speaker: '-', description: '' },
+    ],
+    execution: [
+      'Event coordination',
+      'Scientific program coordination',
+      'Speaker coordination',
+      'Registration & guest reception',
+      'On-ground event management',
+      'Event branding and visual execution',
+      'Conference materials',
+      'Catering & coffee break',
+      'Certificates',
+      'Conference giveaways and branded materials',
+      'Photography & videography',
+      'Event documentation',
+    ],
+    materials: [
+      'Branded notebooks',
+      'Branded pens',
+      'Certificates',
+      'Printed event materials',
+      'QR / information cards',
+    ],
+    branding: 'The event environment was supported by branded visual elements designed around the identity of Nursing Law & Forensic Science Day, including the on-ground conference branding and roll-ups. The official identities of the Ministry of Interior and the Medical Services Sector are presented clearly throughout the project documentation.',
+    photography: 'The event was fully documented through professional photography and videography, capturing the scientific sessions, speakers, audience, event environment, and key moments throughout the day.',
+    gallery: [
+      'Event setup',
+      'Branding',
+      'Registration',
+      'Scientific sessions',
+      'Speakers',
+      'Audience',
+      'Conference materials',
+      'Certificates',
+      'Catering',
+      'Giveaways',
+      'Event highlights',
+      'Photography & video content',
+    ],
   },
   {
     slug: 'patient-safety-health-economics-scientific-day',
@@ -132,6 +188,92 @@ export const projectPillars = [
     image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
   },
 ]
+
+const nursingLawImages = [
+  ...Object.entries(
+    import.meta.glob('../assets/Nursing Law/*.{jpeg,jpg,png,webp,avif}', { eager: true, import: 'default' }),
+  ),
+  ...Object.entries(
+    import.meta.glob('../assets/ed/*.{jpeg,jpg,png,webp,avif}', { eager: true, import: 'default' }),
+  ),
+  ...Object.entries(
+    import.meta.glob('../assets/sd/*.{jpeg,jpg,png,webp,avif}', { eager: true, import: 'default' }),
+  ),
+]
+  .sort(([firstPath], [secondPath]) => firstPath.localeCompare(secondPath))
+  .map(([path, src]) => ({ path, src }))
+const nursingLawTeasers = nursingLawImages.slice(-2)
+const nursingLawSlides = nursingLawImages
+
+const nursingLawSlideCaptions = [
+  'Event setup',
+  'Main stage',
+  'Registration',
+  'Branding',
+  'Audience',
+  'Scientific sessions',
+  'Speakers',
+  'Certificates',
+  'Catering',
+  'Event highlights',
+]
+
+const nursingLawVideos = Object.entries(
+  import.meta.glob('../assets/vedio/*.{mp4,webm,mov,m4v}', { eager: true, import: 'default' }),
+)
+  .sort(([firstPath], [secondPath]) => firstPath.localeCompare(secondPath))
+  .map(([path, src], index) => ({
+    path,
+    src,
+    poster: nursingLawSlides[index % nursingLawSlides.length]?.src ?? forensicNursingCover,
+  }))
+
+export const eventHighlights = {
+  'forensic-nursing-scientific-day': nursingLawSlides.map(({ src }, index) => ({
+    src,
+    alt: `Nursing Law & Forensic Science Day event image ${index + 1}`,
+    caption: nursingLawSlideCaptions[index % nursingLawSlideCaptions.length],
+  })),
+  default: [
+    {
+      src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Scientific event highlight image',
+      caption: 'Event experience',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Event highlight image',
+      caption: 'Guest engagement',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Event highlight image',
+      caption: 'Venue atmosphere',
+    },
+  ],
+}
+
+export const eventVideos = {
+  'forensic-nursing-scientific-day': nursingLawVideos.map(({ src, poster }, index) => ({
+    src,
+    poster,
+    alt: `Nursing Law & Forensic Science Day video ${index + 1}`,
+  })),
+}
+
+export const eventGalleryTeasers = {
+  'forensic-nursing-scientific-day': nursingLawTeasers.map(({ src }, index) => ({
+    src,
+    alt: `Nursing Law & Forensic Science Day gallery preview ${index + 1}`,
+  })),
+}
+
+export const eventGalleryPhotos = {
+  'forensic-nursing-scientific-day': nursingLawImages.map(({ src }, index) => ({
+    src,
+    alt: `Nursing Law & Forensic Science Day event image ${index + 1}`,
+  })),
+}
 
 export const experienceSteps = [
   {

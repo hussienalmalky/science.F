@@ -13,6 +13,7 @@ import FounderPage from './pages/FounderPage'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
+import EventGalleryPage from './pages/EventGalleryPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import SocialLinksPage from './pages/SocialLinksPage'
@@ -61,36 +62,38 @@ function App() {
     <div className="app-shell">
       <div className="ambient-logo" aria-hidden="true" />
       <div ref={cursorRef} className="custom-cursor" aria-hidden="true">S</div>
-      <aside className="social-float" aria-label={t('Social media links')}>
-        {contactInfo.filter((item) => ['Facebook', 'Instagram', 'WhatsApp'].includes(item.label)).map((item) => (
-          <a
-            key={item.label}
-            className="social-float-link"
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={t(item.label)}
-            title={t(item.label)}
-          >
-            {item.label === 'Facebook' ? (
-              <svg className="social-facebook-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M13.3 21v-7.7h2.6l.4-3h-3V8.4c0-.9.3-1.5 1.5-1.5h1.6V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.1H7.2v3h2.7V21h3.4Z" />
-              </svg>
-            ) : item.label === 'Instagram' ? (
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.1" stroke="currentColor" strokeWidth="1.8" />
-                <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
-                <circle cx="17.6" cy="6.6" r="1.1" fill="currentColor" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                <path d="M20.1 11.5a8.1 8.1 0 0 1-11.9 7.1L4 20l1.4-4A8.1 8.1 0 1 1 20.1 11.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                <path d="M9 8.4c.3-.4.5-.4.8-.4h.4c.2 0 .3.1.4.3l.8 1.7c.1.2.1.4-.1.6l-.6.6c-.2.2-.1.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.2.6 0l.6-.6c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.3.4v.4c0 .3 0 .5-.4.8-.4.4-1.1.6-1.7.4-1.1-.3-2.3-1-3.4-2.1-1.1-1.1-1.8-2.3-2.1-3.4-.2-.6 0-1.3.4-1.7Z" fill="currentColor" />
-              </svg>
-            )}
-          </a>
-        ))}
-      </aside>
+      {pathname !== '/our-work/forensic-nursing-scientific-day' && (
+        <aside className="social-float" aria-label={t('Social media links')}>
+          {contactInfo.filter((item) => ['Facebook', 'Instagram', 'WhatsApp'].includes(item.label)).map((item) => (
+            <a
+              key={item.label}
+              className="social-float-link"
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t(item.label)}
+              title={t(item.label)}
+            >
+              {item.label === 'Facebook' ? (
+                <svg className="social-facebook-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M13.3 21v-7.7h2.6l.4-3h-3V8.4c0-.9.3-1.5 1.5-1.5h1.6V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.1H7.2v3h2.7V21h3.4Z" />
+                </svg>
+              ) : item.label === 'Instagram' ? (
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                  <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.1" stroke="currentColor" strokeWidth="1.8" />
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+                  <circle cx="17.6" cy="6.6" r="1.1" fill="currentColor" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                  <path d="M20.1 11.5a8.1 8.1 0 0 1-11.9 7.1L4 20l1.4-4A8.1 8.1 0 1 1 20.1 11.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+                  <path d="M9 8.4c.3-.4.5-.4.8-.4h.4c.2 0 .3.1.4.3l.8 1.7c.1.2.1.4-.1.6l-.6.6c-.2.2-.1.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.2.6 0l.6-.6c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.3.4v.4c0 .3 0 .5-.4.8-.4.4-1.1.6-1.7.4-1.1-.3-2.3-1-3.4-2.1-1.1-1.1-1.8-2.3-2.1-3.4-.2-.6 0-1.3.4-1.7Z" fill="currentColor" />
+                </svg>
+              )}
+            </a>
+          ))}
+        </aside>
+      )}
       <header className="site-header">
         <Link className="brand-lockup" to="/" aria-label={t('Science home')}>
           <span className="brand-symbol" aria-hidden="true" />
@@ -146,6 +149,7 @@ function App() {
           <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/our-work" element={<WorkPage />} />
+          <Route path="/our-work/:projectSlug/gallery" element={<EventGalleryPage />} />
           <Route path="/our-work/:projectSlug" element={<ProjectDetailPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/science-experience/:stepSlug" element={<ExperienceStepPage />} />
