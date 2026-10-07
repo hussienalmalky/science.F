@@ -4,3 +4,4 @@ obj/
 .vscode/
 science.F/
 node_modules
+apps/frontend/
