@@ -1,38 +1,27 @@
-# science.F
+# ScienceF
 
-This repository is organized into a clear two-part structure:
+This repository contains the ScienceF website and a .NET 10 F# class library.
 
-- ScienceF: .NET 10 F# class library
-- apps/frontend: React + Vite frontend site
-
-## Structure
+## Projects
 
 ```text
 science.F/
-├── ScienceF/          # F# library
-├── ScienceF.slnx      # .NET solution file
-├── apps/
-│   └── frontend/      # React frontend app
-└── README.md
+├── src/                # React + Vite website
+├── ScienceF/           # F# class library
+├── ScienceF.slnx       # .NET solution file
+└── science-website/     # Static website
 ```
 
-## Run the frontend
+## Run the website
 
 ```bash
-cd apps/frontend
 npm install
 npm run dev
 ```
 
-## Build the .NET library
+## Build
 
 ```bash
-dotnet build ScienceF.slnx
-```
-
-## Build the frontend
-
-```bash
-cd apps/frontend
 npm run build
+dotnet build ScienceF.slnx
 ```
