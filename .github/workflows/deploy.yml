@@ -25,6 +25,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify .htaccess build output
+        run: test -f dist/.htaccess
+
       - name: Deploy dist to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -40,3 +43,14 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+
+      - name: Upload .htaccess explicitly
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          curl --fail --show-error --ftp-ssl-reqd \
+            --user "$FTP_USERNAME:$FTP_PASSWORD" \
+            --upload-file dist/.htaccess \
+            "ftp://${FTP_SERVER}/home/vr1cq4drkh3o/public_html/science.elmawy.com/.htaccess"
