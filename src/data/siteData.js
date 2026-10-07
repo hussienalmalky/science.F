@@ -7,13 +7,13 @@ import meiraImage from '../assets/meira/meira-tamer.jpeg'
 
 export const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about' },
-  { label: 'Services', to: '/services' },
-  { label: 'Our Events', to: '/our-work' },
-  { label: 'Case Studies', to: '/case-studies' },
-  { label: 'Experience', to: '/science-experience' },
-  { label: 'Our Team', to: '/team' },
-  { label: 'Contact Us', to: '/contact' },
+  { label: 'About Us', to: '/about.html' },
+  { label: 'Services', to: '/services.html' },
+  { label: 'Our Events', to: '/work.html' },
+  { label: 'Case Studies', to: '/case-studies.html' },
+  { label: 'Experience', to: '/experience.html' },
+  { label: 'Our Team', to: '/team.html' },
+  { label: 'Contact Us', to: '/contact.html' },
 ]
 
 export const aboutPillars = [

@@ -3,7 +3,6 @@ import { Link, NavLink, Route, Routes, useLocation } from 'react-router'
 import { ayaProfile, contactInfo, hayaProfile, jowanaProfile, meiraProfile, navItems } from './data/siteData'
 import { useLanguage } from './i18n'
 import ScienceWordmark from './components/ScienceWordmark'
-import HomePage from './pages/HomePage'
 
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const AboutPillarPage = lazy(() => import('./pages/AboutPillarPage'))
@@ -21,6 +20,7 @@ const SocialLinksPage = lazy(() => import('./pages/SocialLinksPage'))
 const TeamPage = lazy(() => import('./pages/TeamPage'))
 const TeamRolePage = lazy(() => import('./pages/TeamRolePage'))
 const WorkPage = lazy(() => import('./pages/WorkPage'))
+const HomePage = lazy(() => import('./pages/HomePage'))
 
 function App() {
   const cursorRef = useRef(null)
@@ -146,16 +146,22 @@ function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/about.html" element={<AboutPage />} />
             <Route path="/about/:aboutSlug" element={<AboutPillarPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/services.html" element={<ServicesPage />} />
             <Route path="/services/:serviceSlug" element={<ServiceDetailPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/work.html" element={<WorkPage />} />
             <Route path="/our-work" element={<WorkPage />} />
             <Route path="/our-work/:projectSlug/gallery" element={<EventGalleryPage />} />
             <Route path="/our-work/:projectSlug" element={<ProjectDetailPage />} />
+            <Route path="/case-studies.html" element={<CaseStudiesPage />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/experience.html" element={<ExperiencePage />} />
             <Route path="/science-experience/:stepSlug" element={<ExperienceStepPage />} />
             <Route path="/science-experience" element={<ExperiencePage />} />
+            <Route path="/team.html" element={<TeamPage />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/team/osama-elmawy" element={<FounderPage />} />
             <Route path="/team/aya-nassar" element={<FounderPage profile={ayaProfile} />} />
@@ -163,7 +169,9 @@ function App() {
             <Route path="/team/haya-tamer" element={<FounderPage profile={hayaProfile} />} />
             <Route path="/team/dr-meira-tamer" element={<FounderPage profile={meiraProfile} />} />
             <Route path="/team/:teamSlug" element={<TeamRolePage />} />
+            <Route path="/social.html" element={<SocialLinksPage />} />
             <Route path="/social" element={<SocialLinksPage />} />
+            <Route path="/contact.html" element={<ContactPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

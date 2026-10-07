@@ -37,10 +37,10 @@ export default function HomePage() {
             {t('CONFERENCES · EVENTS · EXHIBITIONS · PRODUCTION')}
           </p>
           <div className="hero-actions">
-            <Link className="button button-primary" to="/about">
+            <Link className="button button-primary" to="/about.html">
               {t('About Us')}
             </Link>
-            <Link className="button button-secondary" to="/contact">
+            <Link className="button button-secondary" to="/contact.html">
               {t('Contact Us')}
             </Link>
           </div>

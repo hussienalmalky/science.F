@@ -25,8 +25,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify .htaccess build output
-        run: test -f dist/.htaccess
+      - name: Verify multi-page build output
+        run: |
+          test -s dist/.htaccess
+          test -s dist/_redirects
+          for page in index.html about.html services.html work.html case-studies.html experience.html team.html contact.html social.html; do
+            test -s "dist/$page"
+          done
 
       - name: Deploy dist to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
