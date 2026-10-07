@@ -16,8 +16,4 @@
   RewriteRule ^science-experience/.+$ /experience.html [L]
   RewriteRule ^team/.+$ /team.html [L]
   RewriteRule ^social/.+$ /social.html [L]
-
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
 </IfModule>
