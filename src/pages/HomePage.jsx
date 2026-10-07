@@ -152,9 +152,9 @@ export default function HomePage() {
             >
               <div className="project-media">
                 <div
-                  className="project-visual"
+                  className={`project-visual ${project.slug === 'forensic-nursing-scientific-day' ? 'project-visual--poster' : ''}`}
                   aria-hidden="true"
-                  style={{ backgroundImage: `linear-gradient(180deg, rgba(10, 15, 22, 0.1), rgba(7,11,18,0.38)), url(${project.image})` }}
+                  style={{ backgroundImage: `linear-gradient(180deg, rgba(10, 15, 22, 0.1), rgba(7,11,18,0.38)), url("${project.image}")` }}
                 />
               </div>
               <div className="project-copy">
